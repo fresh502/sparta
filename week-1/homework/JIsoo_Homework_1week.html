@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+
+    <!-- Optional JavaScript -->
+    <script>
+        function order_finish() { alert('주문이 완료되었습니다.'); }
+    </script>
+
+    <title>Jisoo_Homework_1st week</title>
+
+    <style>
+        .card {
+            width: 900px;
+            margin: 5px auto;
+        }
+        .order{
+            margin: 10;
+            width: 50%;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" style="width: 40rem;">
+        <img class="card-img-top"
+            src="https://lh5.googleusercontent.com/proxy/btHVzmsC9Z2qtwc-CbE5R-odtunX10QA2G8Wg4lgPrciHVENk4PG68kNhPfcDpwYRU2ID7hE0rDbwMEURkE7zszWmECohuFDuRJoDp22OqqEuA26ng1H9RRjdU4I8bbcHINgywTQQi2S7sMAbhJ22FNbPIvISEhFpiWhhwfUv2es-z9vLi_YIqNIDXI7vTYSPM1dmqkpdXtFvroduARTyYPyZVDmDgZkC1NclIYbiT6IfQeEYXf3dRCjdxvk0PSHrA">
+        <div class="card-body">
+            <h1 class="card-title">요미 토끼<span style="font-size: small;"> 가격: 1,000,000원 / 개</span></h1>
+            <p class="card-text">이 상품으로 말할 것 같으면 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기 돼지 삼형제의 숨결이 고루 녹아 있는 먹으면 120세까지 살 수
+                있다는 이 상품으로 말할 것 같으면 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기 돼지..</p>
+            <h1>주문하기</h1>
+            <p class="customer name">주문자 성함: <input type="text" /></p>
+            <p class="quantity">수량: <input type="text" /></p>
+            <P class="address">주소: <input type="text" /></P>
+            <p class="phone number">전화번호: <input type="text" /></p>
+            <p class="order"><button onclick="order_finish()" type="button" class="btn btn-primary"> 주문하기</button></p>
+        </div>
+    </div>
+</body>
+
+</html>
