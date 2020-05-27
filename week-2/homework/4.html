@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jisoo_Homework_2nd week</title>
+
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Bootstap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+
+    <!-- Optional JavaScript -->
+    <script>
+        $(document).ready(function () {
+            // 여기에 환율 API Ajax 요청을 하면 되겠죠?
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    let exchange_rate = response[1]["rate"];
+                    $('#exchange_rate').append(exchange_rate);
+                }
+            })
+
+        });
+
+        function order_finish() {
+            let q1name = $('#input-q1').val();
+            let q2quantity = $('#input-q2').val();
+            let q3address = $('#input-q3').val();
+            let q4phone = $('#input-q4').val();
+
+            let info = [q1name, q2quantity, q3address, q4phone];
+
+            for (let i = 0; i < info.length; i++) {
+
+                if (q1name == '') {
+                    alert('이름을 입력하세요!');
+                    return;
+                }
+                else if (q2quantity == '') {
+                    alert('수량을 입력하세요!');
+                    return;
+                }
+                else if (q3address == '') {
+                    alert('배송지를 입력하세요!')
+                    return;
+                }
+                else if (q4phone == '') {
+                    alert('전화번호를 입력하세요!')
+                    return;
+                }
+                else {
+                    alert('주문이 완료되었습니다.');
+                }
+            }
+
+        }
+
+    </script>
+
+    <style>
+        .card-img-top {
+            width: 700px;
+            height: 500px;
+        }
+
+        .card {
+            width: 900px;
+            margin: 5px auto;
+        }
+
+        .order {
+            margin: 10;
+            width: 50%;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="card" style="width: 40rem;">
+        <img class="card-img-top"
+            src="https://lh5.googleusercontent.com/proxy/btHVzmsC9Z2qtwc-CbE5R-odtunX10QA2G8Wg4lgPrciHVENk4PG68kNhPfcDpwYRU2ID7hE0rDbwMEURkE7zszWmECohuFDuRJoDp22OqqEuA26ng1H9RRjdU4I8bbcHINgywTQQi2S7sMAbhJ22FNbPIvISEhFpiWhhwfUv2es-z9vLi_YIqNIDXI7vTYSPM1dmqkpdXtFvroduARTyYPyZVDmDgZkC1NclIYbiT6IfQeEYXf3dRCjdxvk0PSHrA">
+        <div class="card-body">
+            <h2 style="display: inline">요미 토끼</h2>&nbsp;&nbsp; <span class="price">가격: 1,000,000원 / 개</span>
+            <p class="card-text">이 상품으로 말할 것 같으면 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기 돼지 삼형제의 숨결이 고루 녹아 있는 먹으면 120세까지 살 수
+                있다는 이 상품으로 말할 것 같으면 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기 돼지..</p>
+            <p class="exchange_rate">달러-원 환율:<span id="exchange_rate"></span> </p>
+
+            <h1>주문하기</h1>
+            <p class="customername">주문자 성함: <input id="input-q1" type="text" /></p>
+            <p class="quantity">수량: <input id="input-q2" type="text" /></p>
+            <p class="address">주소: <input id="input-q3" type="text" /></P>
+            <p class="phone number">전화번호: <input id="input-q4" type="text" /></p>
+            <p class="order"><button onclick="order_finish()" type="button" class="btn btn-primary"> 주문하기</button></p>
+        </div>
+    </div>
+</body>
+
+</html>
